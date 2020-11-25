@@ -8,11 +8,26 @@
 <body>
 	<header>
 		<h1>JSON y Ajax</h1>
-	<button id="btn">Ir a buscar información de 3 animales</button>
+	<button id="btn" onclick="loadDoc()">Ir a buscar información de 3 animales</button>
 
 	</header>
-	<div id="animal-info">
+	<div id="demo">
 		
 	</div>
+	<script>
+	function loadDoc() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+    	var	misdatos=JSON.parse(xhttp.responseText);
+      document.getElementById("demo").innerHTML =
+      misdatos;
+    }
+  };
+  xhttp.open("GET", "js/animals.json", true);
+  xhttp.send();
+}
+	</script>
+	
 </body>
 </html>
