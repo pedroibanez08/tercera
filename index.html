@@ -21,7 +21,7 @@
     if (this.readyState == 4 && this.status == 200) {
     	var	misdatos=JSON.parse(xhttp.responseText);
       document.getElementById("demo").innerHTML =
-      misdatos;
+      misdatos[0][0];
     }
   };
   xhttp.open("GET", "animals.json", true);
